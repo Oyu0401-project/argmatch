@@ -1,0 +1,39 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "argmatch"
+version = "1.0.0"
+description = "手書き答案の解答一致率から「写し」の候補ペアを統計的に絞る"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+  "numpy>=1.26",
+  "opencv-python>=4.9",
+  "sympy>=1.12",
+]
+
+[project.optional-dependencies]
+web = ["flask>=3.0"]
+dev = ["pytest>=8.0"]
+
+[project.scripts]
+argmatch = "cli:main"
+
+[tool.setuptools]
+py-modules = [
+  "answer_match",
+  "cli",
+  "demo_generate",
+  "demo_scans",
+  "metrics",
+  "ocr_cells",
+  "pipeline",
+  "report",
+  "webapp",
+  "web_templates",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

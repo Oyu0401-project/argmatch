@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# argmatch ランチャー（インストール不要で使う場合）
+#   ./bin/argmatch selftest
+#   ./bin/argmatch run --scans scans/ --key key.csv --out run/
+# PATH の通った場所にシンボリックリンクしてもよい:
+#   ln -s "$PWD/bin/argmatch" ~/.local/bin/argmatch
+DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+PYTHONPATH="$DIR${PYTHONPATH:+:$PYTHONPATH}" exec python3 "$DIR/cli.py" "$@"
